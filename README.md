@@ -42,5 +42,3 @@ flameshot gui
 For Wayland, the package recommends `xdg-desktop-portal-gtk` (GNOME), `xdg-desktop-portal-kde` (KDE) or `xdg-desktop-portal-wlr` and `grim` (Sway/Hyprland). `apt` installs the recommended packages by default.
 
 To remove it: `sudo apt remove flameshot`.
-
-If this repo is private, use `gh repo clone leocostaba/flameshot-wayland -- --branch v15.0.0.0 --depth 1` instead of `git clone`, so GitHub authenticates you.
