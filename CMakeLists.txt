@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.22)
 # cmake_policy(SET CMP0076 OLD)
 
-set(FLAMESHOT_VERSION 15.0.0)
+set(FLAMESHOT_VERSION 15.0.0.0)
 
 # Flameshot-org
 set(GIT_API_URL "https://api.github.com/repos/flameshot-org/flameshot/releases/latest")
@@ -22,7 +22,7 @@ set(QT_VERSION_MAJOR 6 CACHE STRING "")
 option(BUILD_SHARED_LIBS OFF)
 #QHOTKEY_INSTALL used by QHotkey; must be disabled on Windows
 if(WIN32)
-set(QHOTKEY_INSTALL OFF CACHE BOOL "qHotkey install")
+  set(QHOTKEY_INSTALL OFF CACHE BOOL "qHotkey install")
 endif()
 
 #Needed due to linker error with QtColorWidget
@@ -42,7 +42,7 @@ else()
   FetchContent_Declare(
     qtColorWidgets
     GIT_REPOSITORY https://gitlab.com/mattbas/Qt-Color-Widgets.git
-    GIT_TAG 5d52e907e50dc88cf969b41cea44665ff6c475b1
+    GIT_TAG master
   )
   #Workaround for duplicate GUID in windows WIX installer
   if(WIN32)
@@ -79,7 +79,7 @@ set(USE_PORTABLE_CONFIG
   ${DEFAULT_USE_PORTABLE_CONFIG}
   CACHE BOOL "Store config in application folder")
 if(USE_PORTABLE_CONFIG)
-add_compile_definitions(USE_PORTABLE_CONFIG)
+  add_compile_definitions(USE_PORTABLE_CONFIG)
 endif()
 
 option(FLAMESHOT_DEBUG_CAPTURE "Enable mode to make debugging easier" OFF)
@@ -130,7 +130,7 @@ if(USE_KDSINGLEAPPLICATION)
       FetchContent_Declare(
         kdsingleApplication
         GIT_REPOSITORY https://github.com/KDAB/KDSingleApplication.git
-        GIT_TAG v1.2.1
+        GIT_TAG master
       )
       FetchContent_MakeAvailable(kdsingleApplication)
     endif()
@@ -149,7 +149,7 @@ option(BUILD_STATIC_LIBS ON)
 if(WIN32 OR APPLE)
   FetchContent_Declare(
     qHotKey
-    GIT_REPOSITORY https://github.com/flameshot-org/QHotkey
+    GIT_REPOSITORY https://github.com/Skycoder42/QHotkey.git
     GIT_TAG master
   )
   FetchContent_MakeAvailable(QHotKey)
